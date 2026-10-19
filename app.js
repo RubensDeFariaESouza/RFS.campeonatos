@@ -2,7 +2,7 @@
 'use strict';
 const KEY='meuTorneio.data.v2', PASS_HASH='d6f251314b9c8435973abf7bb9be23211018e5b4f8730ab245de9e348189703f';
 // Configure estes dois valores conforme o README para ativar a sincronização na nuvem.
-const SUPABASE_URL='https://izneqwdyfjcjiicnkfvh.supabase.co/rest/v1/';
+const SUPABASE_URL='https://izneqwdyfjcjiicnkfvh.supabase.co';
 const SUPABASE_ANON_KEY='sb_publishable_RT4DZBAU5HQW9boIgKqodw_nIJQ_REr';
 let cloud=null, adminPassword='', cloudReady=false, cloudTimer=null, applyingRemote=false;
 const $=id=>document.getElementById(id), uid=()=>crypto.randomUUID?crypto.randomUUID():Date.now().toString(36)+Math.random().toString(36).slice(2);
