@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07111f">
+  <meta name="description" content="Painel de campeonatos, grupos, partidas e classificação.">
+  <title>Meu Torneio — Campeonatos</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Meu Torneio início">
+      <span class="brand-icon">⚽</span><span><strong>Meu Torneio</strong><small>Seus campeonatos, do seu jeito</small></span>
+    </a>
+    <div class="top-actions">
+      <span id="modeBadge" class="badge">Modo local</span>
+      <button id="adminToggle" class="button button-primary">⚙ Administrar</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="sidebar">
+      <p class="nav-label">MENU</p>
+      <button class="nav-item active" data-view="overview">▦ <span>Visão geral</span></button>
+      <button class="nav-item" data-view="groups">◫ <span>Grupos</span></button>
+      <button class="nav-item" data-view="matches">▤ <span>Partidas</span></button>
+      <button class="nav-item" data-view="standings">☷ <span>Classificação</span></button>
+      <div class="sidebar-note"><strong>Seu campeonato</strong><p>Crie competições, organize grupos e acompanhe os resultados em um só lugar.</p></div>
+    </aside>
+
+    <section class="content">
+      <div class="hero">
+        <div>
+          <p class="eyebrow">CENTRAL DE COMPETIÇÕES</p>
+          <h1>Campeonatos</h1>
+          <p class="muted">Gerencie seus torneios e acompanhe a classificação.</p>
+        </div>
+        <div class="hero-ball">🏆</div>
+      </div>
+
+      <div class="toolbar">
+        <label class="select-wrap">Campeonato
+          <select id="championshipSelect" aria-label="Selecionar campeonato"></select>
+        </label>
+        <div class="toolbar-actions">
+          <button id="newChampionship" class="button button-primary admin-only">＋ Novo campeonato</button>
+          <button id="exportData" class="button button-ghost admin-only">↧ Exportar backup</button>
+          <label class="button button-ghost admin-only upload-label">↥ Importar backup<input id="importData" type="file" accept="application/json" hidden></label>
+        </div>
+      </div>
+
+      <div id="adminWarning" class="warning hidden"><strong>⚠ Modo de administração sem login</strong><span>Este site não tem autenticação: qualquer pessoa que abrir o site neste navegador pode editar os dados locais. Não use este modo para informações privadas. Para publicação com dados compartilhados, configure um banco de dados e autenticação.</span></div>
+      <div id="toast" class="toast hidden" role="status"></div>
+
+      <section id="view-overview" class="view">
+        <div class="stats-grid">
+          <article class="stat-card"><span class="stat-icon blue">🏆</span><div><p>Campeonatos</p><strong id="statChampionships">0</strong></div></article>
+          <article class="stat-card"><span class="stat-icon purple">◫</span><div><p>Grupos</p><strong id="statGroups">0</strong></div></article>
+          <article class="stat-card"><span class="stat-icon green">⚽</span><div><p>Times</p><strong id="statTeams">0</strong></div></article>
+          <article class="stat-card"><span class="stat-icon orange">▤</span><div><p>Partidas concluídas</p><strong id="statPlayed">0</strong></div></article>
+        </div>
+        <div class="section-heading"><div><h2>Grupos do campeonato</h2><p class="muted">Classificação atualizada pelos placares cadastrados.</p></div><button class="button button-ghost" data-go="standings">Ver classificação →</button></div>
+        <div id="overviewGroups" class="group-grid"></div>
+        <div class="section-heading"><div><h2>Próximas partidas</h2><p class="muted">Jogos ainda sem resultado final.</p></div><button class="button button-ghost" data-go="matches">Ver partidas →</button></div>
+        <div id="upcomingMatches" class="panel"></div>
+      </section>
+
+      <section id="view-groups" class="view hidden">
+        <div class="section-heading"><div><h2>Grupos e times</h2><p class="muted">Organize os times em cada grupo.</p></div><button id="newGroup" class="button button-primary admin-only">＋ Criar grupo</button></div>
+        <div id="groupsList" class="group-grid"></div>
+      </section>
+
+      <section id="view-matches" class="view hidden">
+        <div class="section-heading"><div><h2>Partidas</h2><p class="muted">Cadastre jogos e informe os placares finais.</p></div><button id="newMatch" class="button button-primary admin-only">＋ Nova partida</button></div>
+        <div class="filters panel"><label>Filtrar grupo<select id="matchGroupFilter"><option value="all">Todos os grupos</option></select></label><label>Status<select id="matchStatusFilter"><option value="all">Todas</option><option value="pending">A jogar</option><option value="played">Concluídas</option></select></label></div>
+        <div id="matchesList" class="match-list"></div>
+      </section>
+
+      <section id="view-standings" class="view hidden">
+        <div class="section-heading"><div><h2>Classificação</h2><p class="muted">Critérios: pontos, saldo de gols, gols pró e vitórias.</p></div></div>
+        <div id="standingsList" class="group-grid"></div>
+      </section>
+      <footer>Meu Torneio <span>•</span> Dados guardados neste navegador</footer>
+    </section>
+  </main>
+
+  <dialog id="modal">
+    <form id="modalForm" method="dialog">
+      <div class="modal-head"><div><p class="eyebrow">GERENCIAR</p><h2 id="modalTitle">Editar</h2></div><button type="button" id="modalClose" class="icon-button" aria-label="Fechar">✕</button></div>
+      <div id="modalFields" class="modal-fields"></div>
+      <div class="modal-actions"><button type="button" id="modalCancel" class="button button-ghost">Cancelar</button><button type="submit" class="button button-primary">Salvar</button></div>
+    </form>
+  </dialog>
+  <script src="app.js"></script>
+</body>
+</html>
