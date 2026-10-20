@@ -233,3 +233,14 @@
 .event-editor .admin-event-preview.home-event .admin-preview-copy{grid-column:1;grid-row:1;text-align:right;padding-right:34px}
 .event-editor .admin-event-preview.away-event .admin-preview-icon{grid-column:3;grid-row:1;justify-self:start}
 .event-editor .admin-event-preview.away-event .admin-preview-copy{grid-column:3;grid-row:1;text-align:left;padding-left:34px}
+
+
+/* Cronômetro sempre visível nos cartões administrativos */
+.admin-match-clock{padding:12px 14px;border-top:1px solid #203750;background:#091827}
+.admin-match-clock .live-clock{margin:0;background:#123528}
+.admin-match-clock .admin-clock-actions{margin-top:8px}
+.admin-match-clock .admin-clock-actions .button{font-size:12px;padding:8px 10px}
+.admin-timeline-list .event-row.is-collapsed{display:none!important}
+.admin-timeline-card .admin-event-preview{grid-template-columns:minmax(0,1fr) 48px minmax(0,1fr)}
+.admin-timeline-card .admin-edit-event{cursor:pointer}
+@media(max-width:650px){.admin-match-clock{padding:10px}.admin-match-clock .admin-clock-actions{display:flex}.admin-match-clock .admin-clock-actions .button{flex:1;font-size:11px;padding:8px 5px}}
