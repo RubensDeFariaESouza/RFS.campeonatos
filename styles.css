@@ -209,3 +209,27 @@
 .event-editor .admin-add-event{margin-top:12px;width:100%;justify-content:center;text-align:center;background:#34296a;border-color:#5c54a0;color:#f3f5ff}
 .event-editor .admin-add-event:hover{background:#40327e}
 @media(max-width:650px){.event-editor .admin-event-preview{grid-template-columns:minmax(0,1fr) 44px minmax(0,1fr);gap:5px}.event-editor .admin-preview-copy strong{font-size:11px}.event-editor .admin-preview-copy small{font-size:10px}.event-editor .admin-preview-icon{width:21px;height:21px}}
+
+
+/* Timeline administrativa focada nos eventos, sem formulário permanente */
+.event-row.is-collapsed{display:none!important}
+.event-template{display:none!important}
+.event-editor .admin-edit-event{grid-column:1/-1;justify-self:center;margin-top:5px;padding:4px 10px;border:1px solid #4b4384;border-radius:7px;background:#282052;color:#d5d8ff;font-size:11px}
+.event-editor .admin-event-preview{grid-template-columns:minmax(0,1fr) 48px minmax(0,1fr);position:relative;padding-bottom:3px}
+.event-editor .admin-event-preview .admin-edit-event{grid-column:1/-1}
+.admin-clock-panel{border:1px solid #29415c;border-radius:12px;padding:12px;margin:12px 0;background:#0a192a}
+.admin-clock-panel .live-clock{margin:0}
+.admin-clock-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.live-matches-section{margin:18px 0 24px;padding:16px;border:1px solid #26765c;border-radius:16px;background:linear-gradient(145deg,#0d2a27,#0b1927);box-shadow:0 8px 24px #0002}
+.live-matches-heading{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.live-matches-heading h2{margin:0;font-size:19px;color:#e8fff5}
+.live-matches-heading p{margin:4px 0 0;color:#a9c9c0;font-size:12px}
+.live-matches-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:12px}
+.live-matches-grid .match-card{margin:0;background:#0b1d2b}
+.live-matches-grid .match-timeline{margin-left:8px;margin-right:8px}
+@media(max-width:650px){.live-matches-section{padding:11px}.admin-clock-actions .button{flex:1}.event-editor .admin-event-preview{grid-template-columns:minmax(0,1fr) 44px minmax(0,1fr);gap:5px}}
+
+.event-editor .admin-event-preview.home-event .admin-preview-icon{grid-column:1;grid-row:1;justify-self:end;order:2}
+.event-editor .admin-event-preview.home-event .admin-preview-copy{grid-column:1;grid-row:1;text-align:right;padding-right:34px}
+.event-editor .admin-event-preview.away-event .admin-preview-icon{grid-column:3;grid-row:1;justify-self:start}
+.event-editor .admin-event-preview.away-event .admin-preview-copy{grid-column:3;grid-row:1;text-align:left;padding-left:34px}
