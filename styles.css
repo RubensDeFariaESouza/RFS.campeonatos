@@ -181,3 +181,17 @@
 /* Melhorias na edição da linha do tempo e partidas ao vivo */
 .event-editor{border:1px solid var(--border);border-radius:12px;padding:14px;background:#091827;margin:12px 0}.event-editor-head{display:flex;align-items:start;justify-content:space-between;gap:12px}.event-editor-head h3{margin:0 0 4px}.event-editor-head p{font-size:12px;margin:0 0 10px}.event-rows{display:grid;gap:8px}.event-row-wrap{display:grid;gap:6px}.add-event-before{width:100%;text-align:left;white-space:normal}.event-row{border:1px solid #29415c;border-radius:10px;padding:9px;background:#0d1d30}.event-row input[hidden]{display:none!important}.live-clock{display:flex;align-items:center;gap:9px;flex-wrap:wrap;padding:10px 12px;border-radius:10px;background:#123528;color:#a8f3d1;margin-bottom:12px}.live-clock strong{font-size:11px;letter-spacing:.08em}.clock-value{font-size:20px;font-weight:900;font-variant-numeric:tabular-nums}.live-dot{width:8px;height:8px;border-radius:50%;background:#3ce5a3;box-shadow:0 0 0 4px #3ce5a322}.live-clock-label{font-size:10px;font-weight:800;letter-spacing:.08em}.match-card:has(.live-clock){border-color:#26765c;box-shadow:inset 3px 0 #26d69a}.event-row select[name="type"]{min-width:0}.event-row input,.event-row select{min-width:0}.type-substitution{color:#8ec4ff}.type-penaltyAwarded{color:#c3a5ff}
 @media(max-width:650px){.event-editor{padding:9px}.event-editor-head{flex-direction:column}.event-row{display:grid;grid-template-columns:1fr 1fr;gap:7px}.event-row input[name="minute"]{grid-column:1}.event-row select[name="teamId"]{grid-column:2}.event-row select[name="type"]{grid-column:1/-1}.event-row input[name="player"],.event-row input[name="note"]{grid-column:1/-1}.event-row [data-remove-event]{justify-self:end}}
+
+/* Editor de eventos com a mesma identidade visual da timeline pública */
+.event-editor{background:linear-gradient(180deg,#211b50 0%,#18122d 100%);border-color:#38316f;color:#f3f5ff}
+.event-editor .event-editor-head h3{color:#f5f5ff}
+.event-editor .event-editor-head .muted{color:#b6b8da}
+.event-editor .event-rows{position:relative;padding:8px 0 2px}
+.event-editor .event-row-wrap{position:relative;margin:0;padding:8px 0 10px;border-bottom:1px solid #ffffff12}
+.event-editor .event-row-wrap:last-of-type{border-bottom:0}
+.event-editor .event-row{padding:10px;border:1px solid #4b4384;border-radius:10px;background:#17132f;margin:7px 0 0}
+.event-editor .event-row input,.event-editor .event-row select{background:#111029;color:#f3f5ff;border-color:#4b4384;border-radius:7px}
+.event-editor .event-row input::placeholder{color:#a7a5c9}
+.event-editor .add-event-before{font-size:11px;padding:7px 10px;border-color:#5c54a0;color:#d5d8ff;background:#282052}
+.event-editor .add-event-before:hover{background:#34296a}
+.event-editor .event-row .icon-button{background:#34203a;color:#ff9da8;border-color:#784054}
