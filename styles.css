@@ -195,3 +195,17 @@
 .event-editor .add-event-before{font-size:11px;padding:7px 10px;border-color:#5c54a0;color:#d5d8ff;background:#282052}
 .event-editor .add-event-before:hover{background:#34296a}
 .event-editor .event-row .icon-button{background:#34203a;color:#ff9da8;border-color:#784054}
+
+/* Timeline administrativa: os eventos usam a mesma linguagem visual da área pública */
+.event-editor .admin-timeline-list{gap:0;padding:8px 0 2px;position:relative}
+.event-editor .admin-timeline-card{display:grid;grid-template-columns:minmax(0,1fr);gap:0;padding:10px 0 13px;margin:0;border-bottom:1px solid #ffffff14}
+.event-editor .admin-event-preview{display:grid;grid-template-columns:minmax(0,1fr) 48px minmax(0,1fr);align-items:center;gap:8px;min-height:48px;color:#f3f5ff}
+.event-editor .admin-preview-minute{grid-column:2;grid-row:1;text-align:center;color:#d5d8ff;font-size:14px;font-weight:850;font-variant-numeric:tabular-nums}
+.event-editor .admin-preview-icon{grid-column:1;grid-row:1;justify-self:end;width:25px;height:25px;display:grid;place-items:center;border-radius:50%;color:#78baff;background:#172b4a;border:1px solid #36577c}
+.event-editor .admin-preview-copy{grid-column:3;grid-row:1;min-width:0;display:block}
+.event-editor .admin-preview-copy strong{display:block;color:#f5f5ff;font-size:13px;line-height:1.3;overflow-wrap:anywhere}
+.event-editor .admin-preview-copy small{display:block;margin-top:3px;color:#b6b8da;font-size:11px;line-height:1.35;overflow-wrap:anywhere}
+.event-editor .admin-timeline-card .event-row{margin-top:8px;border-color:#4b4384;background:#17132f}
+.event-editor .admin-add-event{margin-top:12px;width:100%;justify-content:center;text-align:center;background:#34296a;border-color:#5c54a0;color:#f3f5ff}
+.event-editor .admin-add-event:hover{background:#40327e}
+@media(max-width:650px){.event-editor .admin-event-preview{grid-template-columns:minmax(0,1fr) 44px minmax(0,1fr);gap:5px}.event-editor .admin-preview-copy strong{font-size:11px}.event-editor .admin-preview-copy small{font-size:10px}.event-editor .admin-preview-icon{width:21px;height:21px}}
