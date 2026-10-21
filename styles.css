@@ -235,12 +235,15 @@
 .event-editor .admin-event-preview.away-event .admin-preview-copy{grid-column:3;grid-row:1;text-align:left;padding-left:34px}
 
 
-/* Cronômetro sempre visível nos cartões administrativos */
-.admin-match-clock{padding:12px 14px;border-top:1px solid #203750;background:#091827}
-.admin-match-clock .live-clock{margin:0;background:#123528}
-.admin-match-clock .admin-clock-actions{margin-top:8px}
-.admin-match-clock .admin-clock-actions .button{font-size:12px;padding:8px 10px}
-.admin-timeline-list .event-row.is-collapsed{display:none!important}
-.admin-timeline-card .admin-event-preview{grid-template-columns:minmax(0,1fr) 48px minmax(0,1fr)}
-.admin-timeline-card .admin-edit-event{cursor:pointer}
-@media(max-width:650px){.admin-match-clock{padding:10px}.admin-match-clock .admin-clock-actions{display:flex}.admin-match-clock .admin-clock-actions .button{flex:1;font-size:11px;padding:8px 5px}}
+/* Painel administrativo retrátil: recolher não remove nem reinicializa os dados. */
+.admin-match-panel{margin-top:12px;border-top:1px solid #263f5c;padding-top:10px}
+.admin-match-panel>summary{cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;border:1px solid #29415c;border-radius:9px;background:#0a192a;color:#a9c3e2;font-weight:750;font-size:12px}
+.admin-match-panel>summary::-webkit-details-marker{display:none}
+.admin-match-panel>summary::after{content:'＋';font-size:17px;color:#8dc0ff}
+.admin-match-panel[open]>summary::after{content:'−'}
+.admin-match-panel-body{padding-top:12px;min-width:0}
+.admin-match-panel .match-actions{margin-top:12px}
+.admin-clock-start{width:100%;justify-content:center;margin:10px 0}
+.admin-clock-actions .button{font-size:12px}
+.live-score-label{display:block;color:#5ce9b7;font-size:10px;margin-top:4px;letter-spacing:.07em}
+@media(max-width:650px){.admin-match-panel>summary{font-size:11px;padding:9px}.admin-match-panel-body{padding-top:8px}.admin-clock-actions .button{flex:1}}
