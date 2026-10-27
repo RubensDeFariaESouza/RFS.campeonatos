@@ -273,3 +273,20 @@
 .event-row [data-remove-event]{display:inline-flex!important;align-items:center;justify-content:center;visibility:visible!important;opacity:1!important;min-width:32px;min-height:32px}
 .admin-clock-actions [data-clock-action="cancel"]{display:inline-flex!important;visibility:visible!important;opacity:1!important}
 @media(max-width:650px){.modal-head{gap:8px;align-items:center}.modal-head-actions{gap:5px}.modal-head-actions .button{white-space:normal;padding:7px 8px;font-size:11px}.admin-clock-actions [data-clock-action="cancel"]{flex:1;display:inline-flex!important}.event-row [data-remove-event]{grid-column:4;grid-row:1;display:inline-flex!important}}
+
+
+/* v11: editor flutuante estilo picture-in-picture e tabela de estatísticas */
+dialog[open]{position:fixed;inset:7vh auto auto 50%;transform:translateX(-50%);margin:0;max-height:85vh;z-index:30}
+dialog[open]::backdrop{display:none}
+dialog.pip-mode[open]{inset:auto 14px 14px auto;transform:none;width:min(430px,calc(100vw - 20px));max-height:min(72vh,680px);padding:14px;border-color:#5c54a0;border-radius:15px;box-shadow:0 18px 70px #000c;z-index:1000}
+dialog.pip-mode .modal-head{position:sticky;top:-14px;background:#0c1a2b;padding:5px 0 10px;z-index:2;border-bottom:1px solid #263f5c}
+dialog.pip-mode .modal-head h2{font-size:16px;margin-bottom:0}
+dialog.pip-mode .modal-fields{gap:10px;margin:10px 0 14px}
+dialog.pip-mode .modal-actions{position:sticky;bottom:-14px;background:#0c1a2b;padding:10px 0 2px;z-index:2;border-top:1px solid #263f5c}
+dialog.pip-mode #modalAdminPanelToggle{font-size:10px;padding:7px 8px}
+.player-stats{margin:18px 0 24px;padding:15px 16px;overflow:hidden}
+.player-stats .section-heading{margin:0 0 12px}
+.player-stats .section-heading h2{margin:0 0 3px;font-size:18px}
+.player-stats .table-scroll{border:1px solid #1a3048;border-radius:10px}
+.player-stats td:nth-child(2){font-weight:700}
+@media(max-width:650px){dialog[open]:not(.pip-mode){top:3vh;max-height:94vh;padding:15px}dialog.pip-mode[open]{right:8px;bottom:8px;width:calc(100vw - 16px);max-height:68vh;padding:11px}.player-stats{padding:10px}.player-stats th,.player-stats td{padding:8px 6px;font-size:11px}}
