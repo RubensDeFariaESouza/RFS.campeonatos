@@ -300,3 +300,14 @@ dialog.pip-mode #modalAdminPanelToggle{font-size:10px;padding:7px 8px}
 .crest-crop-frame img[hidden]{display:none}
 .crest-crop-tools label{display:grid;gap:3px;font-size:12px;color:#a7bdd6}
 .crest-crop-tools input[type=range]{width:100%;padding:0;accent-color:#5599ff;background:transparent;border:0}
+
+/* Estatísticas recolhíveis e recorte de escudo arrastável por toque */
+.player-stats-summary{display:flex;align-items:center;justify-content:space-between;gap:12px;cursor:pointer;list-style:none;font-size:18px;font-weight:800;padding:2px 0 8px}
+.player-stats-summary::-webkit-details-marker{display:none}
+.player-stats-summary .muted{font-size:12px;font-weight:500}
+.player-stats[open] .stats-chevron{display:inline-block;transform:rotate(180deg)}
+.player-stats:not([open]) .stats-tiebreak{display:none}
+.stats-tiebreak{margin:0 0 12px;font-size:12px}
+.crest-crop-frame{cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none}
+.crest-crop-frame:active{cursor:grabbing}
+.crest-crop-frame img{pointer-events:none;user-select:none;-webkit-user-drag:none}
